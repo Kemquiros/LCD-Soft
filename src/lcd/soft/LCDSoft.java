@@ -1,4 +1,6 @@
 /*
+    October 28th, 2016
+    Author: John Tapias
     This file is part of LCD-Soft.
 
     LCD-Soft is free software: you can redistribute it and/or modify
@@ -15,15 +17,10 @@
  */
 package lcd.soft;
 
-/**
- *
- * @author t30r3m4
- */
+
 public class LCDSoft {
 
-    /**
-     * @param args the command line arguments
-     */
+
     public static void main(String[] args) {
         // TODO code application logic here
     }
