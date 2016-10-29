@@ -18,6 +18,7 @@
 package lcd.soft.controller;
 
 import java.io.BufferedReader;
+import java.io.FileReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 
@@ -39,18 +40,30 @@ public class PersonalReader {
         size=0;
         pattern="";
         errorCode=0;
-        br = new BufferedReader(new InputStreamReader(System.in));
-        
     }
+    public PersonalReader(InputStreamReader ir){
+        size=0;
+        pattern="";
+        errorCode=0;
+        br = new BufferedReader(ir);
+    }
+    public PersonalReader(FileReader fr){
+        size=0;
+        pattern="";
+        errorCode=0;
+        br = new BufferedReader(fr);
+
+    }
+
     
     /*
     Return 0: Error
     Return 1: Ok
     Return 2: Finished
     */
-    public int read() throws IOException{
+    public int read(String s) throws IOException{
         //Read from console and also omit leading and trailing whitespace
-        String temp = br.readLine().trim();
+        String temp = s.trim();
         //Separate inputs using regular expresion: comma
         String[] temp1 = temp.split(",");
         
@@ -102,6 +115,8 @@ public class PersonalReader {
         
     }
     
+   
+    
 
     
     public boolean isPositiveInteger(String input){
@@ -127,6 +142,20 @@ public class PersonalReader {
     public void setPattern(String pattern) {
         PersonalReader.pattern = pattern;
     }
+
+    public static int getErrorCode() {
+        return errorCode;
+    }
+
+    public static void setErrorCode(int errorCode) {
+        PersonalReader.errorCode = errorCode;
+    }
+
+    public static BufferedReader getBr() {
+        return br;
+    }
+    
+    
     
     
 }

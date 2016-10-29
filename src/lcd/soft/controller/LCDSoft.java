@@ -18,6 +18,7 @@
 package lcd.soft.controller;
 
 import java.io.IOException;
+import java.io.InputStreamReader;
 import lcd.soft.model.*;
 import lcd.soft.view.*;
 
@@ -34,7 +35,7 @@ public class LCDSoft {
     
     
     public static void main(String[] args) throws IOException {
-        pr =new PersonalReader();
+        pr =new PersonalReader(new InputStreamReader(System.in));
         n= new PersonalNumbers();
         int code;
         /*
@@ -44,7 +45,7 @@ public class LCDSoft {
         2: Program finished
         */
         do{
-            code=pr.read();
+            code=pr.read(pr.getBr().readLine());
         
             if(code== 1){//Program displays number if there's no error
                disp = new Display(pr.getSize(), pr.getPattern().length());
