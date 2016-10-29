@@ -23,21 +23,21 @@ import java.util.Arrays;
  * This class stores the canonical numbers
  * 
  */
-public class Number {
+public class PersonalNumbers {
     //We have 10 numbers (0 to 9)
     //Each number has seven positions on LCD displays (0 to 6)
     /*
-    (p0)
-    _ __ __
-    |      |
-    (p1)|      |(p2)
-    | (p3) |  
-    __ __ __
-    |      |
-    (p4)|      | (p5)
-    |      |
-    __ __ __
-    (p6)
+    *********(p0)
+    *********_ __ __
+    *********|      |
+    *****(p1)|      |(p2)
+    *********| (p3) |  
+    *********__ __ __
+    *********|      |
+    *****(p4)|      | (p5)
+    *********|      |
+    *********__ __ __
+    *********(p6)
      */
     /*--------------------------
     |Position| 6 5 4 3 2 1 0  |
@@ -85,7 +85,7 @@ public class Number {
     private final byte[] n;
     
     //Constructor
-    public Number(){
+    public PersonalNumbers(){
         //We have 10 numbers
         this.n = new byte[10];
         //Initializing in 0

@@ -24,20 +24,27 @@ public class PersonalError implements IError{
             case 0:
                 break;
             case 1:
-                System.err.println("Correct usage:\n>>N1,N2\nNo more or less than two arguments separated by comma");
+                printMessage("Correct usage:\n>>N1,N2\nNo more or less than two arguments separated by comma");
                 break;
             case 2:
-                System.err.println("Correct usage:\n>>N1,N2\nWhere N1 is a number between 1 to 10, corresponding to size display"); 
+                printMessage("Correct usage:\n>>N1,N2\nWhere N1 is a number between 1 to 10, corresponding to size display"); 
                 break;
             case 3:
                 //We can evade overflows
-                System.err.println("Correct usage:\n>>N1,N2\nN2 is too long");
+                printMessage("Correct usage:\n>>N1,N2\nN2 is too long");
                 break;
             case 4:
-                System.err.println("Correct usage:\n>>N1,N2\nWhere N1 and N2 should be positive integer numbers");
+                printMessage("Correct usage:\n>>N1,N2\nWhere N1 and N2 should be positive integer numbers");
                 break;
         }
         
+    }
+    private void printMessage(String s){
+        System.err.println("----------------------------------------");
+        System.err.println(s);
+        System.err.println("----------------------------------------");
+        
+    
     }
     
 }

@@ -17,6 +17,10 @@
  */
 package lcd.soft.controller;
 
+import java.io.IOException;
+import lcd.soft.model.*;
+import lcd.soft.view.*;
+
 /**
  *
  * This class manages the program behavior
@@ -25,15 +29,30 @@ package lcd.soft.controller;
 public class LCDSoft {
 
     static PersonalReader pr;
-    static Number n;
-    public static void main(String[] args) {
+    static PersonalNumbers n;
+    static Display disp;
+    
+    
+    public static void main(String[] args) throws IOException {
         pr =new PersonalReader();
+        n= new PersonalNumbers();
+        int code;
         /*
         pr.read() returns
         0: Error
         1: Ok
         2: Program finished
         */
+        do{
+            code=pr.read();
+        
+           if(code== 1){//Program displays number if there's no error
+               disp = new Display(pr.getSize(), pr.getPattern().length());
+               
+           }
+           
+        }while( code != 2);
+
     }
     
 }

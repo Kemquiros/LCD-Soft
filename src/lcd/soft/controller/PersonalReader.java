@@ -73,7 +73,7 @@ public class PersonalReader {
         //If arguments aren't positive integer numbers
         if(isPositiveInteger(temp1[0]) && isPositiveInteger(temp1[1])){
             size=Integer.parseInt(temp1[0]);
-            pattern=temp1[1];
+            pattern=temp1[1].trim();
         }
         else{
             errorCode = 4;
@@ -106,4 +106,22 @@ public class PersonalReader {
             return false;
         }
     }
+
+    public int getSize() {
+        return size;
+    }
+
+    public  void setSize(int size) {
+        PersonalReader.size = size;
+    }
+
+    public String getPattern() {
+        return pattern;
+    }
+
+    public void setPattern(String pattern) {
+        PersonalReader.pattern = pattern;
+    }
+    
+    
 }
