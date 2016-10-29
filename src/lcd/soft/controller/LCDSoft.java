@@ -34,6 +34,7 @@ public class LCDSoft {
     static Display disp;
     
     
+    
     public static void main(String[] args) throws IOException {
         pr =new PersonalReader(new InputStreamReader(System.in));
         n= new PersonalNumbers();
@@ -45,15 +46,16 @@ public class LCDSoft {
         2: Program finished
         */
         do{
-            code=pr.read(pr.getBr().readLine());
+            
+            code=pr.read(pr.getBr().readLine());//Read line from console
         
             if(code== 1){//Program displays number if there's no error
                disp = new Display(pr.getSize(), pr.getPattern().length());
-               //For each number in pattern
+               
                int numberId=1;
-                for(char c :pr.getPattern().toCharArray()){
-                    if (Character.isDigit(c)) {
-                       for(int bit=0;bit<=6;bit++){
+                for(char c :pr.getPattern().toCharArray()){//For each number in pattern
+                    if (Character.isDigit(c)) {                        
+                       for(int bit=0;bit<=6;bit++){//For each LED identificator
                             if(n.getBit(Character.getNumericValue(c), bit)){
                                 disp.draw(numberId, bit);
                             }
