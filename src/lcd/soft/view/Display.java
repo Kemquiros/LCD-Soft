@@ -40,7 +40,10 @@ public class Display {
         col +=numbers-1;//Add blank spaces between numbers
         
         screen = new String[row][col];
-        Arrays.fill(screen, " ");//Initializing
+        
+        for(int i=0;i<row;i++){
+            Arrays.fill(screen[i], " ");//Initializing
+        }
     }
     
     //For example: pattern="15873"
@@ -57,7 +60,8 @@ public class Display {
             tempRow=3
             */
             int tempRow = (size*(ledId/3)) + (ledId/3) ;
-            for(int i=0;i<size;i++){
+            
+            for(int i=0;i<size;i++){                
                 screen[tempRow][i+1+initCol]="-";
             }                
         }else{
@@ -69,7 +73,7 @@ public class Display {
                     break;
                 case 2:
                     for(int i=0;i<size;i++){
-                        screen[i+1][initCol]="|";
+                        screen[i+1][initCol+size]="|";
                     }
                     break;
                 case 4:
@@ -79,7 +83,7 @@ public class Display {
                     break;
                 case 5:
                     for(int i=0;i<size;i++){
-                        screen[i+size+2][initCol]="|";
+                        screen[i+size+2][initCol+size]="|";
                     }
                     break;
                 default:
@@ -96,6 +100,7 @@ public class Display {
                 System.out.print(screen[i][j]);
             }
         }
+        System.out.println("");
     }
     
 }

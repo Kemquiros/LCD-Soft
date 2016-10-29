@@ -46,10 +46,22 @@ public class LCDSoft {
         do{
             code=pr.read();
         
-           if(code== 1){//Program displays number if there's no error
+            if(code== 1){//Program displays number if there's no error
                disp = new Display(pr.getSize(), pr.getPattern().length());
-               
-           }
+               //For each number in pattern
+               int numberId=1;
+                for(char c :pr.getPattern().toCharArray()){
+                    if (Character.isDigit(c)) {
+                       for(int bit=0;bit<=6;bit++){
+                            if(n.getBit(Character.getNumericValue(c), bit)){
+                                disp.draw(numberId, bit);
+                            }
+                        }
+                    } 
+                    numberId++;
+                }
+                disp.printScreen();
+            }
            
         }while( code != 2);
 

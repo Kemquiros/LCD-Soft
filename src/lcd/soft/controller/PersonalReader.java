@@ -72,7 +72,7 @@ public class PersonalReader {
         //-------------------------------------------
         //If arguments aren't positive integer numbers
         if(isPositiveInteger(temp1[0]) && isPositiveInteger(temp1[1])){
-            size=Integer.parseInt(temp1[0]);
+            size=Integer.parseInt(temp1[0].trim());
             pattern=temp1[1].trim();
         }
         else{
@@ -83,15 +83,20 @@ public class PersonalReader {
         //-------------------------------------------
         
         //-------------------------------------------
+        //Finish program       
+        if(size==0 && Integer.parseInt(pattern)==0){
+            return 2;//Finish the program
+        }
+        //-------------------------------------------
+        
+        //-------------------------------------------
         //If size isn't a number between 1 to 10
         errorCode = (size<1 || size>10) ? 2:0;
         pe.manageError(errorCode);
         if (errorCode !=0) return 0;
         //-------------------------------------------
         
-        if(size==0 && Integer.parseInt(pattern)==0){
-            return 2;//Finish the program
-        }
+
         
         return 1;//Everything is fine
         
@@ -101,7 +106,7 @@ public class PersonalReader {
     
     public boolean isPositiveInteger(String input){
         try{
-            return Integer.parseInt(input)>0;            
+            return Integer.parseInt(input.trim())>=0;            
         }catch(NumberFormatException ex){
             return false;
         }
